@@ -1,0 +1,13 @@
+.svelte-kit export-ignore
+.vscode export-ignore
+docs export-ignore
+node_modules export-ignore
+src export-ignore
+static export-ignore
+.gitignore export-ignore
+.npmrc export-ignore
+LICENSE export-ignore
+package-lock.json export-ignore
+svelte.config.js export-ignore
+tsconfig.json export-ignore
+vite.config.js export-ignore
