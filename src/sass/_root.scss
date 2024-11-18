@@ -1,0 +1,40 @@
+@use './tokens/sys-color';
+@use './tokens/sys-typescale';
+
+$typescale: sys-typescale.values();
+
+:root {
+  --md-ref-typeface-brand: 'Familjen Grotesk', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --md-ref-typeface-plain: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --md-icon-font: 'Material Symbols Sharp';
+
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 6px; // default 8px
+  --md-sys-shape-corner-medium: 8px; // default 12px
+  --md-sys-shape-corner-large: 10px; // default 16px
+  --md-sys-shape-corner-extra-large: 12px; // default 28px
+
+  @each $key, $value in $typescale {
+    --md-sys-typescale-#{$key}: #{$value};
+  }
+}
+
+$values-light: sys-color.values-light();
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @each $key, $color in $values-light {
+      --md-sys-color-#{$key}: #{$color};
+    }
+  }
+}
+
+$values-dark: sys-color.values-dark();
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @each $key, $color in $values-dark {
+      --md-sys-color-#{$key}: #{$color};
+    }
+  }
+}

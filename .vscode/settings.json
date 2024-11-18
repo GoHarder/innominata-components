@@ -1,0 +1,16 @@
+{
+  "cSpell.words": ["Eaglehead", "Familjen", "Haptics", "iconbutton", "innominata", "publint", "Qiang", "typeahead", "typescale", "videocam"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "": true,
+    "**/.vscode": true,
+    "**/.svelte-kit": true,
+    "**/node_modules": true
+  },
+  "explorerExclude.backup": {}
+}
