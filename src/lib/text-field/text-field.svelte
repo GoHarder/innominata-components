@@ -1,8 +1,8 @@
 <script lang="ts">
   import '@material/web/textfield/filled-text-field.js';
   import '@material/web/textfield/outlined-text-field.js';
-  import { onDestroy, onMount } from 'svelte';
-  import { setSlots } from '../internal/lib.ts';
+  // import { onDestroy, onMount } from 'svelte';
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
