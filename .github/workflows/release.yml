@@ -44,7 +44,6 @@ jobs:
         with:
           files: 'release/*.tgz'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-id: ${{ steps.create_release.outputs.id }}
 
       # - name: Upload Release Asset
       #   uses: actions/upload-release-asset@v1
