@@ -4,7 +4,7 @@
   // MARK: Types
   // ------------------------------------------------
   import type { MdListItem } from '@material/web/list/list-item.js';
-  import { setSlots } from "../internal/lib.ts";
+  import { setSlots } from '../internal/lib.js';
 
   type Props = {
     /**
@@ -42,7 +42,7 @@
   // ------------------------------------------------
   $effect.pre(() => {
     setSlots(component);
-  })  
+  });
 
   // MARK: Events
   // ------------------------------------------------

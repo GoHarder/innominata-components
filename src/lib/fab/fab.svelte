@@ -1,8 +1,8 @@
 <script lang="ts">
   import '@material/web/fab/branded-fab.js';
   import '@material/web/fab/fab.js';
-  import { onDestroy, onMount } from "svelte";
-  import { setSlots } from "../internal/lib.ts";
+  import { onDestroy, onMount } from 'svelte';
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
@@ -12,22 +12,22 @@
   type MdComp = MdFab | MdBrandedFab;
 
   type Props = {
-    /** 
-     * The child elements to render. 
+    /**
+     * The child elements to render.
      *
      * Available slots:
      * - `icon`: The icon to render.
      */
     children: Function;
     /** The on click event handler. */
-    onClick?: (event: MouseEvent) => void;    
+    onClick?: (event: MouseEvent) => void;
     /** Whether or not the fab is branded. */
     branded?: boolean;
     /** The FAB color variant to render. */
     variant?: MdComp['variant'];
-    /** 
-     * The size of the FAB. 
-     * 
+    /**
+     * The size of the FAB.
+     *
      * NOTE: Branded FABs cannot be sized to small, and Extended FABs do not have different sizes.
      */
     size?: MdComp['size'];
@@ -36,20 +36,11 @@
     /** Lowers the FAB's elevation. */
     lowered?: boolean;
     [key: string]: any;
-  }
+  };
 
   // MARK: Properties
   // ------------------------------------------------
-  let { 
-    children, 
-    onClick,
-    branded = false,
-    variant = 'surface',
-    size = 'medium',
-    label = '',
-    lowered = false,
-    ...props 
-  }: Props = $props();
+  let { children, onClick, branded = false, variant = 'surface', size = 'medium', label = '', lowered = false, ...props }: Props = $props();
 
   // MARK: State
   // ------------------------------------------------
@@ -59,19 +50,19 @@
   // ------------------------------------------------
   $effect.pre(() => {
     setSlots(component);
-  })  
+  });
 
   // MARK: Events
   // ------------------------------------------------
   // MARK: Lifecycle
   // ------------------------------------------------
   onMount(() => {
-    if (component && onClick) component.addEventListener('click', onClick);    
-  })
+    if (component && onClick) component.addEventListener('click', onClick);
+  });
 
   onDestroy(() => {
     if (component && onClick) component.removeEventListener('click', onClick);
-  })
+  });
 </script>
 
 {#if branded}

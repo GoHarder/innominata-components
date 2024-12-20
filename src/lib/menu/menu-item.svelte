@@ -1,6 +1,6 @@
 <script lang="ts">
   import '@material/web/menu/menu-item.js';
-  import { setSlots } from "../internal/lib.ts";
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
@@ -16,34 +16,24 @@
      */
     children: Function;
     /** Disables the item and makes it non-selectable and non-interactive. */
-    disabled?:	boolean;
+    disabled?: boolean;
     /** Sets the behavior and role of the menu item, defaults to "menuitem". */
     type?: MdMenuItem['type'];
     /** Sets the underlying HTMLAnchorElement's href resource attribute. */
-    href?:	string;
+    href?: string;
     /** Sets the underlying HTMLAnchorElement's target attribute when href is set. */
     target?: MdMenuItem['target'];
     /** Keeps the menu open if clicked or keyboard selected. */
     keepOpen?: boolean;
     /** Sets the item in the selected visual state when a submenu is opened. */
-    selected?:	boolean;
-    typeaheadText?:	string;
+    selected?: boolean;
+    typeaheadText?: string;
     [key: string]: any;
   };
 
   // MARK: Properties
   // ------------------------------------------------
-  let { 
-    children, 
-    disabled = false, 
-    type = 'menuitem', 
-    href = '' ,
-    target = '',
-    keepOpen = false,
-    selected = false,
-    typeaheadText = undefined,
-    ...props
-  }: Props = $props();
+  let { children, disabled = false, type = 'menuitem', href = '', target = '', keepOpen = false, selected = false, typeaheadText = undefined, ...props }: Props = $props();
 
   // MARK: State
   // ------------------------------------------------
@@ -53,9 +43,9 @@
   // ------------------------------------------------
   $effect.pre(() => {
     setSlots(component);
-  })  
+  });
 </script>
 
 <md-menu-item bind:this={component} {disabled} {type} {href} {target} {keepOpen} {selected} {typeaheadText} {...props}>
-  {@render children()}  
+  {@render children()}
 </md-menu-item>

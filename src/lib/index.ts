@@ -20,4 +20,4 @@ export { Switch } from './switch/index.js';
 export { Tab, Tabs } from './tabs/index.js';
 export { TextField } from './text-field/index.js';
 
-export type { SvelteContext as StyleConfig } from './internal/lib.ts';
+export type { SvelteContext as StyleConfig } from './internal/lib.js';

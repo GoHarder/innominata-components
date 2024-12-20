@@ -1,7 +1,7 @@
 <script lang="ts">
   import '@material/web/chips/input-chip.js';
   import { onDestroy, onMount } from 'svelte';
-  import { setSlots } from '../internal/lib.ts';
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------

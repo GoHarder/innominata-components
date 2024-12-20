@@ -3,15 +3,15 @@
   import '@material/web/iconbutton/filled-tonal-icon-button.js';
   import '@material/web/iconbutton/icon-button.js';
   import '@material/web/iconbutton/outlined-icon-button.js';
-  import { onDestroy, onMount } from "svelte";
-  import { setSlots } from '../internal/lib.ts';
+  import { onDestroy, onMount } from 'svelte';
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
   import type { MdIconButton } from '@material/web/iconbutton/icon-button.js';
-  import type { MdFilledIconButton } from "@material/web/iconbutton/filled-icon-button.js";  
-  import type { MdFilledTonalIconButton } from "@material/web/iconbutton/filled-tonal-icon-button.js";  
-  import type { MdOutlinedIconButton } from "@material/web/iconbutton/outlined-icon-button.js";
+  import type { MdFilledIconButton } from '@material/web/iconbutton/filled-icon-button.js';
+  import type { MdFilledTonalIconButton } from '@material/web/iconbutton/filled-tonal-icon-button.js';
+  import type { MdOutlinedIconButton } from '@material/web/iconbutton/outlined-icon-button.js';
 
   type Variant = '' | 'filled' | 'filled-tonal' | 'outlined';
 
@@ -29,7 +29,7 @@
     /** Sets the underlying `HTMLAnchorElement`'s `href` resource attribute. */
     href?: string;
     /** Sets the underlying `HTMLAnchorElement`'s `target` attribute. */
-    target?: MdIconButton['target']
+    target?: MdIconButton['target'];
     /** When true, the button will toggle between selected and unselected states. */
     toggle?: boolean;
     /**
@@ -48,14 +48,14 @@
 
   // MARK: Properties
   // ------------------------------------------------
-  let { 
-    children, 
-    onClick, 
-    variant, 
-    disabled = false, 
+  let {
+    children,
+    onClick,
+    variant,
+    disabled = false,
     href = '',
     target = '',
-    toggle = false, 
+    toggle = false,
     selected = $bindable(false),
     type = 'submit',
     value = '',
@@ -65,7 +65,7 @@
 
   // MARK: State
   // ------------------------------------------------
-  let component: MdComp = $state()
+  let component: MdComp = $state();
 
   // MARK: Events
   // ------------------------------------------------
@@ -77,19 +77,19 @@
   // ------------------------------------------------
   $effect.pre(() => {
     setSlots(component);
-  })  
+  });
 
   // MARK: Lifecycle
   // ------------------------------------------------
   onMount(() => {
     const listener = onClick || defaultOnClick;
-    if (component) component.addEventListener('click', listener);    
-  })
+    if (component) component.addEventListener('click', listener);
+  });
 
   onDestroy(() => {
     const listener = onClick || defaultOnClick;
     if (component) component.removeEventListener('click', listener);
-  })
+  });
 </script>
 
 {#if variant === 'filled'}

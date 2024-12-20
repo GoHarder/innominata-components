@@ -1,15 +1,15 @@
 <script lang="ts">
   import '@material/web/select/select-option.js';
-  import { setSlots } from "../internal/lib.ts";
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
-  import type { MdSelectOption } from "@material/web/select/select-option.js";
+  import type { MdSelectOption } from '@material/web/select/select-option.js';
 
   type Props = {
-    /** 
+    /**
      * The children dom content.
-     * 
+     *
      * Available slots:
      * - default
      * - end
@@ -17,7 +17,7 @@
      * - overline
      * - start
      * - supporting-text
-     * - trailing-supporting-text    
+     * - trailing-supporting-text
      */
     children: Function;
     /** Disables the item and makes it non-selectable and non-interactive. */
@@ -30,12 +30,7 @@
 
   // MARK: Properties
   // ------------------------------------------------
-  let { 
-    children, 
-    disabled = false, 
-    selected = false, 
-    value = '' 
-  }: Props = $props();
+  let { children, disabled = false, selected = false, value = '' }: Props = $props();
 
   // MARK: State
   // ------------------------------------------------
@@ -45,7 +40,7 @@
   // ------------------------------------------------
   $effect.pre(() => {
     setSlots(component);
-  })  
+  });
 </script>
 
 <md-select-option bind:this={component} {disabled} {selected} {value}>

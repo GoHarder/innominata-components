@@ -1,6 +1,6 @@
 <script lang="ts">
   import '@material/web/chips/suggestion-chip.js';
-  import { setSlots } from '../internal/lib.ts';
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
@@ -14,7 +14,7 @@
      * - `icon`
      */
     children?: Function;
-    elevated?:	boolean;
+    elevated?: boolean;
     href?: string;
     target?: string;
     /**
@@ -35,16 +35,7 @@
 
   // MARK: Properties
   // ------------------------------------------------
-  let {
-    children,
-    elevated = false,
-    href = '',
-    target = '',
-    disabled = false,
-    alwaysFocusable = false,
-    label = '',
-    ...props
-  }: Props = $props();
+  let { children, elevated = false, href = '', target = '', disabled = false, alwaysFocusable = false, label = '', ...props }: Props = $props();
 
   // MARK: State
   // ------------------------------------------------

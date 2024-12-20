@@ -1,6 +1,6 @@
 <script lang="ts">
   import '@material/web/chips/assist-chip.js';
-  import { setSlots } from "../internal/lib.ts";
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
@@ -12,14 +12,14 @@
     elevated?: boolean;
     href?: string;
     target?: string;
-    /** 
+    /**
      * Whether or not the chip is disabled.
-     * Disabled chips are not focusable, unless always-focusable is set. 
+     * Disabled chips are not focusable, unless always-focusable is set.
      */
     disabled?: boolean;
     /**
      * When true, allow disabled chips to be focused with arrow keys.
-     * Add this when a chip needs increased visibility when disabled. 
+     * Add this when a chip needs increased visibility when disabled.
      * See https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#kbd_disabled_controls for more guidance on when this is needed.
      */
     alwaysFocusable?: boolean;
@@ -30,16 +30,7 @@
 
   // MARK: Properties
   // ------------------------------------------------
-  let { 
-    children, 
-    elevated = false, 
-    href = '', 
-    target = '', 
-    disabled = false, 
-    alwaysFocusable = false, 
-    label = '',
-    ...props 
-  }: Props = $props();
+  let { children, elevated = false, href = '', target = '', disabled = false, alwaysFocusable = false, label = '', ...props }: Props = $props();
 
   // MARK: State
   // ------------------------------------------------
@@ -49,7 +40,7 @@
   // ------------------------------------------------
   $effect.pre(() => {
     setSlots(component);
-  })  
+  });
 </script>
 
 <md-assist-chip bind:this={component} {elevated} {href} {target} {disabled} {label} {...props}>

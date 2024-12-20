@@ -1,7 +1,7 @@
 <script lang="ts">
   import '@material/web/tabs/primary-tab.js';
   import '@material/web/tabs/secondary-tab.js';
-  import { setSlots } from '../internal/lib.ts';
+  // import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------

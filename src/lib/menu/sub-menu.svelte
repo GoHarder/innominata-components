@@ -1,6 +1,6 @@
 <script lang="ts">
   import '@material/web/menu/sub-menu.js';
-  import { setSlots } from "../internal/lib.ts";
+  import { setSlots } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
@@ -9,7 +9,7 @@
   type Props = {
     /**
      * The child elements to render.
-     * 
+     *
      * Available slots:
      * - `item`: The item to render.
      * - `menu`: The menu to render.
@@ -28,14 +28,7 @@
 
   // MARK: Properties
   // ------------------------------------------------
-  let { 
-    children, 
-    anchorCorner = 'start-end',
-    menuCorner = 'start-start',
-    hoverOpenDelay = 400,
-    hoverCloseDelay = 400,
-    ...props 
-  }: Props = $props();
+  let { children, anchorCorner = 'start-end', menuCorner = 'start-start', hoverOpenDelay = 400, hoverCloseDelay = 400, ...props }: Props = $props();
 
   // MARK: State
   // ------------------------------------------------
@@ -45,9 +38,9 @@
   // ------------------------------------------------
   $effect.pre(() => {
     setSlots(component);
-  })  
+  });
 </script>
 
 <md-sub-menu bind:this={component} {anchorCorner} {menuCorner} {hoverOpenDelay} {hoverCloseDelay} {...props}>
-  {@render children()}  
+  {@render children()}
 </md-sub-menu>
