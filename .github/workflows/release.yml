@@ -24,6 +24,9 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Create release directory
+        run: mkdir release
+
       - name: Pack project
         run: npm pack --pack-destination release
 
