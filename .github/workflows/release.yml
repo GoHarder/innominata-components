@@ -36,7 +36,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          title: Release ${{ github.ref }}
+          title: Release ${{ github.ref_name }}
           tag: ${{ github.ref }}
 
       - name: Upload Release Asset
@@ -44,7 +44,7 @@ jobs:
         with:
           files: 'release/*.tgz'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag: ${{ github.ref }}
+          release-tag: ${{ github.ref_name }}
 
       # - name: Upload Release Asset
       #   uses: actions/upload-release-asset@v1
