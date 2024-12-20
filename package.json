@@ -1,6 +1,6 @@
 {
   "name": "@innominata/comp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Svelte Material UI component library",
   "author": {
     "name": "Gregory Harder"
