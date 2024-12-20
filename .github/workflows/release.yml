@@ -24,8 +24,11 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Create release directory
+        run: mkdir release
+
       - name: Pack project
-        run: npm pack
+        run: npm pack --pack-destination release
 
       - name: Create GitHub Release
         id: create_release
@@ -44,6 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./*.tgz
+          asset_path: ./release/*.tgz
           asset_name: innominata-comp-${{ github.ref }}.tgz
           asset_content_type: application/zip
