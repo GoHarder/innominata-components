@@ -39,23 +39,19 @@ jobs:
           title: Release ${{ github.ref }}
           tag: ${{ github.ref }}
 
-      # - name: Create GitHub Release
-      #   id: create_release
-      #   uses: actions/create-release@v1
+      - name: Upload Release Asset
+        uses: AButler/upload-release-assets@v3.0
+        with:
+          files: 'release/*.tgz'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-id: ${{ steps.create_release.outputs.id }}
+
+      # - name: Upload Release Asset
+      #   uses: actions/upload-release-asset@v1
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #   with:
-      #     tag_name: ${{ github.ref }}
-      #     release_name: Release ${{ github.ref }}
-      #     draft: false
-      #     prerelease: false
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./release/innominata-comp-${{ github.ref }}.tgz
-          asset_name: innominata-comp-${{ github.ref }}.tgz
-          asset_content_type: application/zip
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ./release/innominata-comp-${{ github.ref }}.tgz
+      #     asset_name: innominata-comp-${{ github.ref }}.tgz
+      #     asset_content_type: application/zip
