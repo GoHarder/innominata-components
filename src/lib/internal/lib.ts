@@ -22,9 +22,10 @@ export type StyleContext = {
   //   noSpinner?: boolean;
   //   variant?: 'filled' | 'outlined';
   // };
-  // select?: {
-  //   variant?: 'filled' | 'outlined';
-  // };
+  select?: {
+    noAsterisk?: boolean;
+    variant?: 'filled' | 'outlined';
+  };
   // switch?: {
   //   icons?: boolean;
   //   showOnlySelectedIcon?: boolean;
@@ -36,6 +37,7 @@ export type StyleContext = {
 };
 
 export type Context = {
+  reducedMotion: boolean;
   style: StyleContext;
 };
 

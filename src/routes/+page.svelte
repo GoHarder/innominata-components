@@ -39,6 +39,10 @@
   // MARK: Contexts
   // ------------------------------------------------
   setContext('style', {
+    select: {
+      // noAsterisk: true,
+      // variant: 'outlined',
+    },
     textField: {
       // noAsterisk: true,
       // variant: 'outlined',

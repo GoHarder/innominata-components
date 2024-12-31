@@ -1,7 +1,7 @@
 <script lang="ts" module>
   let context = false;
   let reducedMotion: boolean | undefined = undefined;
-  let style: SvelteContext['style']['select'] = undefined;
+  let style: StyleContext['select'] = undefined;
 </script>
 
 <script lang="ts">
@@ -12,7 +12,7 @@
   // MARK: Types
   // ------------------------------------------------
   import type { Select } from '@material/web/select/internal/select.js';
-  import type { SvelteContext } from '../internal/lib.js';
+  import type { StyleContext } from '../internal/lib.js';
 
   type Props = {
     /** The child elements to render. */
@@ -80,7 +80,7 @@
   // MARK: Contexts
   // ------------------------------------------------
   if (!context) {
-    style = getContext<SvelteContext['style']>('style')?.select;
+    style = getContext<StyleContext>('style')?.select;
     reducedMotion = getContext('reducedMotion');
     context = true;
   }
@@ -88,6 +88,11 @@
   if (reducedMotion) quick = true;
 
   if (style?.variant !== undefined) outlined = style.variant === 'outlined';
+
+  if (style) {
+    noAsterisk = style.noAsterisk || noAsterisk;
+    outlined = style.variant === 'outlined' || outlined;
+  }
 
   // MARK: Events
   // ------------------------------------------------
