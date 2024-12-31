@@ -1,5 +1,6 @@
 <script lang="ts">
   import '../sass/index.scss';
+  import { setContext } from 'svelte';
   import ButtonSect from './button-section.svelte';
   import CheckboxSect from './checkbox-section.svelte';
   import ChipSect from './chip-section.svelte';
@@ -37,6 +38,13 @@
   // ------------------------------------------------
   // MARK: Contexts
   // ------------------------------------------------
+  setContext('style', {
+    textField: {
+      // noAsterisk: true,
+      // variant: 'outlined',
+    },
+  });
+
   // MARK: Subscriptions
   // ------------------------------------------------
   // MARK: Reactive Rules

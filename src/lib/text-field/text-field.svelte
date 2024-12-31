@@ -1,8 +1,13 @@
+<script lang="ts" module>
+  let context = false;
+  let style: StyleContext['textField'];
+</script>
+
 <script lang="ts">
+  import { getContext } from 'svelte';
   import '@material/web/textfield/filled-text-field.js';
   import '@material/web/textfield/outlined-text-field.js';
-  // import { onDestroy, onMount } from 'svelte';
-  import { setSlots } from '../internal/lib.js';
+  import { setSlots, type StyleContext } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
@@ -212,14 +217,15 @@
 
   // MARK: Contexts
   // ------------------------------------------------
-  // MARK: Subscriptions
-  // ------------------------------------------------
-  // MARK: Reactive Rules
-  // ------------------------------------------------
-  // MARK: Events
-  // ------------------------------------------------
-  // MARK: Lifecycle
-  // ------------------------------------------------
+  if (!context) {
+    style = getContext<StyleContext>('style')?.textField;
+    context = true;
+  }
+
+  if (style) {
+    noAsterisk = style.noAsterisk || noAsterisk;
+    outlined = style.variant === 'outlined' || outlined;
+  }
 </script>
 
 {#if outlined}
