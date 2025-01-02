@@ -12,12 +12,12 @@
 
 ## Usage
 
-```js
+```svelte
 <script>
   import { Checkbox } from '@innominata/comp';
 </script>
 
-// The three states of a checkbox
+<!-- The three states of a checkbox -->
 <Checkbox />
 <Checkbox checked />
 <Checkbox indeterminate />
@@ -25,7 +25,7 @@
 
 #### Label
 
-```js
+```svelte
 <script>
   import { Checkbox } from '@innominata/comp';
 

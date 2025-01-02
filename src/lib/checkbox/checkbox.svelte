@@ -1,6 +1,6 @@
 <!--
   @component
-  TODO: Add markdown link to the component documentation
+  [Documentation](https://innominata.github.io/comp/components/checkbox)
 -->
 
 <script lang="ts">

@@ -6,8 +6,13 @@ More information coming soon.
 
 ## Table of contents <!-- omit in toc -->
 
+- [Resources](#resources)
 - [Authors](#authors)
 - [License](#license)
+
+## Resources
+
+- [Component Documentation](docs/components)
 
 ## Authors
 
