@@ -41,7 +41,7 @@ export type Context = {
   style: StyleContext;
 };
 
-// MARK: Library
+// MARK: Helpers
 // ------------------------------------------------
 /**
  * Validates that the child is a valid slot element.
@@ -56,6 +56,8 @@ function validateChild(child: unknown): child is SlotElement {
   return false;
 }
 
+// MARK: Library
+// ------------------------------------------------
 /**
  * Sets the slot attribute on all child elements of a component.
  * This is because slots are not supported by Svelte.
@@ -71,4 +73,13 @@ export function setSlots(component: MdComp | undefined) {
     child.slot = child.dataset.slot;
     delete child.dataset.slot;
   }
+}
+
+/**
+ * Creates an id for items that need to be unique.
+ * @param prefix The prefix to use for the id.
+ */
+export function genId(prefix: string) {
+  const id = Math.random().toString(36).slice(2);
+  return `${prefix}-${id}`;
 }
