@@ -1,12 +1,18 @@
+<!--
+  @component
+  TODO: Add markdown link to the component documentation
+-->
+
 <script lang="ts">
   import '@material/web/checkbox/checkbox.js';
-  import { onDestroy, onMount } from 'svelte';
+  import { genId } from '../internal/lib.js';
 
   // MARK: Types
   // ------------------------------------------------
   import type { MdCheckbox } from '@material/web/checkbox/checkbox.js';
 
   type Props = {
+    id?: string;
     /** Whether or not the checkbox is selected. */
     checked?: boolean;
     /** Whether or not the checkbox is disabled. */
@@ -35,7 +41,16 @@
 
   // MARK: Properties
   // ------------------------------------------------
-  let { checked = $bindable(false), disabled = false, indeterminate = false, required = false, value = 'on', name = undefined, ...props }: Props = $props();
+  let {
+    id = genId('checkbox'),
+    checked = $bindable(false),
+    disabled = false,
+    indeterminate = false,
+    required = false,
+    value = 'on',
+    name = undefined,
+    ...props
+  }: Props = $props();
 
   // MARK: State
   // ------------------------------------------------
@@ -47,16 +62,6 @@
     if (!component) return;
     checked = component.checked;
   }
-
-  // MARK: Lifecycle
-  // ------------------------------------------------
-  onMount(() => {
-    if (component) component.addEventListener('change', onChange);
-  });
-
-  onDestroy(() => {
-    if (component) component.removeEventListener('change', onChange);
-  });
 </script>
 
-<md-checkbox bind:this={component} {checked} {disabled} {indeterminate} {required} {value} {name}></md-checkbox>
+<md-checkbox bind:this={component} onchange={onChange} {id} {checked} {disabled} {indeterminate} {required} {value} {name} {...props}></md-checkbox>
