@@ -11,7 +11,7 @@
 
   // MARK: Types
   // ------------------------------------------------
-  import type { Select } from '@material/web/select/internal/select.js';
+  import type { Select as MdSelect } from '@material/web/select/internal/select.js';
   import type { StyleContext } from '../internal/lib.js';
 
   type Props = {
@@ -43,13 +43,13 @@
      * Whether or not the underlying md-menu should be position: fixed to display in a top-level manner, or position: absolute.
      * position: fixed is useful for cases where select is inside of another element with stacking context and hidden overflows such as `md-dialog`.
      */
-    menuPositioning?: Select['menuPositioning'];
+    menuPositioning?: MdSelect['menuPositioning'];
     /** Clamps the menu-width to the width of the select. */
     clampMenuWidth?: boolean;
     /** The max time between the keystrokes of the typeahead select / menu behavior before it clears the typeahead buffer. */
     typeaheadDelay?: number;
     /** Whether the menu should be aligned to the start or the end of the select's textbox. */
-    menuAlign?: Select['menuAlign'];
+    menuAlign?: MdSelect['menuAlign'];
     value?: string;
     selectedIndex?: number;
   };
@@ -75,7 +75,7 @@
   }: Props = $props();
   // MARK: State
   // ------------------------------------------------
-  let component: Select | undefined = $state();
+  let component: MdSelect | undefined = $state();
 
   // MARK: Contexts
   // ------------------------------------------------
