@@ -33,6 +33,7 @@ export type StyleContext = {
   textField?: {
     noAsterisk?: boolean;
     variant?: 'filled' | 'outlined';
+    noSpinner?: boolean;
   };
 };
 
