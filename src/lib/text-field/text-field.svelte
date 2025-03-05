@@ -11,8 +11,8 @@
 
   // MARK: Types
   // ------------------------------------------------
-  import type { MdFilledTextField } from '@material/web/textfield/filled-text-field.js';
-  import type { MdOutlinedTextField } from '@material/web/textfield/outlined-text-field.js';
+  import { MdFilledTextField } from '@material/web/textfield/filled-text-field.js';
+  import { MdOutlinedTextField } from '@material/web/textfield/outlined-text-field.js';
 
   type MdComp = MdFilledTextField | MdOutlinedTextField;
 
@@ -59,6 +59,8 @@
     required?: boolean;
     /** The current value of the text field. It is always a string. */
     value?: string;
+    /** The current value of the text field as a number.  */
+    valueAsNumber?: number;
     /** An optional prefix to display before the input value. */
     prefixText?: string;
     /** An optional suffix to display after the input value. */
@@ -181,6 +183,7 @@
     noAsterisk = false,
     required = false,
     value = $bindable(''),
+    valueAsNumber = $bindable(),
     prefixText = '',
     suffixText = '',
     supportingText = '',
@@ -211,6 +214,11 @@
 
   // MARK: Effects
   // ------------------------------------------------
+  $effect(() => {
+    if (!(type === 'number')) return;
+    value = `${valueAsNumber}`;
+  });
+
   $effect.pre(() => {
     setSlots(component);
   });
@@ -225,12 +233,23 @@
   if (style) {
     noAsterisk = style.noAsterisk || noAsterisk;
     outlined = style.variant === 'outlined' || outlined;
+    noSpinner = style.noSpinner || noSpinner;
+  }
+
+  // MARK: Events
+  // ------------------------------------------------
+  function oninput(event: InputEvent) {
+    const inputType = outlined ? MdOutlinedTextField : MdFilledTextField;
+    if (!(event.target instanceof inputType)) return;
+    value = event.target.value;
+    valueAsNumber = Number(event.target.value);
   }
 </script>
 
 {#if outlined}
   <md-outlined-text-field
     bind:this={component}
+    {oninput}
     {error}
     {errorText}
     {label}
@@ -265,6 +284,7 @@
 {:else}
   <md-filled-text-field
     bind:this={component}
+    {oninput}
     {error}
     {errorText}
     {label}

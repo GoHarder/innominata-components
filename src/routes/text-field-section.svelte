@@ -28,6 +28,8 @@
     address: '123 Main St.',
   });
 
+  let usage = $state('Value');
+
   let icons = $state({
     val1: '',
     val2: '',
@@ -74,7 +76,7 @@
 
   {#if expand}
     <h3>Usage</h3>
-    <TextField label="Label" value="Value" />
+    <TextField label="Label" bind:value={usage} />
     <TextField label="Label" outlined value="Value" />
 
     <h3>Input types</h3>
